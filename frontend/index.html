@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vaping Misinformation Detection Tool - Analyze and detect misinformation in vaping-related content">
+    <title>Vaping Misinformation Detector</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Vaping Misinformation Detector</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Detect Vaping Misinformation</h2>
+            <p>Analyze articles and content for potential misinformation about vaping</p>
+        </section>
+
+        <section class="analysis-section">
+            <div class="input-container">
+                <h3>Enter Content to Analyze</h3>
+                <textarea id="content-input" placeholder="Paste your article or content here..."></textarea>
+                <button id="analyze-btn" class="primary-btn">
+                    <i class="fas fa-search"></i> Analyze Content
+                </button>
+            </div>
+
+            <div class="results-container">
+                <h3>Analysis Results</h3>
+                <div id="results" class="results-box">
+                    <p class="placeholder-text">Results will appear here...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About Our Tool</h2>
+            <p>Our advanced AI-powered tool helps identify potential misinformation in vaping-related content, providing evidence-based analysis and reliable information.</p>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Have questions or feedback? Reach out to our team.</p>
+            <form id="contact-form">
+                <input type="email" placeholder="Your email" required>
+                <textarea placeholder="Your message" required></textarea>
+                <button type="submit" class="primary-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Vaping Misinformation Detector. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load our JavaScript -->
+    <script src="/scripts/app.js"></script>
+</body>
+</html>

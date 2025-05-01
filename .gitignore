@@ -1,0 +1,76 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables (sensitive data)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+*.log
+logs/
+
+# Dependency directories
+node_modules/
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS-specific files
+.DS_Store
+
+# Editor backups
+*~
+*.swp
+*.swo
+
+# Database files (if applicable)
+*.sqlite3
+*.db
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# PyInstaller artifacts
+*.manifest
+*.spec
+
+# Project-specific ignores
+# Ignore fine-tuned model directories to avoid committing large files
+models/fine_tuned/
+# Ignore data directories if they contain large or sensitive files
+data/
+# Ignore visualizations if they are generated
+visualizations/
+# Ignore systemd service files if they are environment-specific
+systemd/
