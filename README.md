@@ -127,8 +127,8 @@ python -m http.server 3000
 
 ## License
 
-[Specify your license here]
+This project is licensed under a Medic Pro Limited License - Contact us for more details.
 
 ## Contact
 
-[Add contact information] 
+Contact us at info@medicpro.london
