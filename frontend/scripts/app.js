@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Select DOM elements
     const form = document.querySelector('form');
     const urlInput = document.getElementById('url-input');
-    const resultDiv = document.getElementById('result');
+    const resultDiv = document.getElementById('results');
     const loadingIndicator = document.getElementById('loading');
 
     // Handle form submission
