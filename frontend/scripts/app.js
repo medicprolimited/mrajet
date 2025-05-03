@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Send POST request to ngrok URL
-            const response = await fetch('https://337b-5-154-184-216.ngrok-free.app/analyze', {
+            const response = await fetch('${window.BACKEND_URL}/analyze', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

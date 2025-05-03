@@ -1,0 +1,10 @@
+{
+    "name": "vaping-misinformation-frontend",
+    "version": "1.0.0",
+    "description": "Frontend for Vaping Misinformation Detector",
+    "scripts": {
+      "build": "node build.js"
+    },
+    "author": "Your Name",
+    "license": "ISC"
+  }
