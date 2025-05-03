@@ -17,7 +17,7 @@ app = FastAPI()
 # CORS configuration for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://apps.medicpro.london"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
