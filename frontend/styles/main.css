@@ -171,7 +171,12 @@ textarea:focus {
     text-align: center;
     margin-top: 2rem;
 }
-
+#loading {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
 /* About Section */
 .about-section {
     background-color: var(--white);

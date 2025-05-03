@@ -32,10 +32,10 @@
         <section class="analysis-section">
             <div class="input-container">
                 <h3>Enter Content to Analyze</h3>
-                <form id="analyze-form"></form>
+                <form id="analyze-form">
                     <input type="url" id="url-input" placeholder="Enter a URL" required>    
                     <textarea id="content-input" placeholder="Paste your article or content here..."></textarea>
-                    <button id="analyze-btn" class="primary-btn">
+                    <button type="submit" id="analyze-btn" class="primary-btn">
                         <i class="fas fa-search"></i> Analyze Content
                     </button>
                 </form>
@@ -43,6 +43,7 @@
 
             <div class="results-container">
                 <h3>Analysis Results</h3>
+                <div id="loading" style="display: none;">Loading...</div>
                 <div id="results" class="results-box">
                     <p class="placeholder-text">Results will appear here...</p>
                 </div>
