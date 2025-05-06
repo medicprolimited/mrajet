@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultDiv.innerHTML = ''; // Clear previous results
 
         try {
-            // Send POST request to ngrok URL
+            // Send POST request to backend URL
             const response = await fetch(`${window.BACKEND_URL}/analyze`, {
                 method: 'POST',
                 headers: {
@@ -73,10 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="counter-args-list">
                         ${item.counter_arguments.map(arg => `<li>${arg}</li>`).join('')}
                     </ul>
-                </div>
             `;
-        });
+    
+            if (item.sources && item.sources.length > 0) {
+                html += `
+                    <div class="sources-label">Sources:</div>
+                    <ul class="sources-list">
+                        ${item.sources.map(source => `<li>${source}</li>`).join('')}
+                    </ul>
+                `;
+            }
 
+            html += `</div>`;
+        });
+    
         html += `</div>
             <div class="report-container">
                 <div class="report-toggle">
@@ -85,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <pre id="report" class="report" style="display: none;">${data.report || 'No report available.'}</pre>
             </div>
         `;
-
+    
         resultDiv.innerHTML = html;
     }
 
