@@ -76,7 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
-        html += `</ul><h3>Report</h3><pre>${data.report}</pre>`;
+        html += `</ul>
+            <div class="report-container">
+                <div class="report-toggle">
+                    <button type="button" class="primary-btn" onclick="toggleReport()">Toggle Markdown Report</button>
+                </div>
+                <pre id="report" class="report" style="display: none;">${data.report || 'No report available.'}</pre>
+            </div>
+        `;
+
         resultDiv.innerHTML = html;
+    }
+
+    // Function to toggle report visibility
+    function toggleReport() {
+        const report = document.getElementById('report');
+        if (report) {
+            report.style.display = report.style.display === 'none' ? 'block' : 'none';
+        }
     }
 });

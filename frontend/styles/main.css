@@ -313,3 +313,22 @@ footer {
         margin: 0 0.5rem;
     }
 }
+
+/* Report Styles */
+.report-container {
+    margin-top: 30px;
+}
+
+.report-toggle {
+    margin-bottom: 15px;
+}
+
+.report {
+    white-space: pre-wrap;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-family: monospace;
+    display: none;
+}
