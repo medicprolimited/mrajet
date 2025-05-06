@@ -332,3 +332,52 @@ footer {
     font-family: monospace;
     display: none;
 }
+
+/* Misinformation Results Styles */
+.misinformation-header {
+    color: var(--accent-color, #f43f5e); /* Modern pink/rose */
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.misinformation-list {
+    margin-top: 20px;
+}
+
+.misinformation-item {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    margin-bottom: 20px;
+}
+
+.misinformation-item:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+.statement-label,
+.counter-args-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color, #2563eb); /* Modern blue */
+    margin-bottom: 5px;
+}
+
+.category-label,
+.confidence-label {
+    font-size: 0.9em;
+    color: var(--text-light, #6b7280); /* Light gray */
+    margin-bottom: 5px;
+}
+
+.statement-text {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.counter-args-list {
+    margin-left: 20px;
+    list-style-type: disc;
+    margin-bottom: 10px;
+}

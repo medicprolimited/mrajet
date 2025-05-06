@@ -57,26 +57,27 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>Analysis Results</h2>
             <p><strong>URL:</strong> ${data.url}</p>
             <p><strong>Processing Time:</strong> ${data.processing_time.toFixed(2)} seconds</p>
-            <h3>Detected Misinformation</h3>
-            <ul>
+            <div class="misinformation-header">Detected Misinformation</div>
+            <div class="misinformation-list">
         `;
 
         // Loop through misinformation results
         data.result.forEach(item => {
             html += `
-                <li>
-                    <strong>Statement:</strong> ${item.statement}<br>
-                    <strong>Category:</strong> ${item.category}<br>
-                    <strong>Confidence:</strong> ${(item.confidence * 100).toFixed(1)}%<br>
-                    <strong>Counter Arguments:</strong>
-                    <ul>
+                <div class="misinformation-item">
+                    <div class="statement-label">Statement:</div>
+                    <div class="statement-text">${item.statement}</div>
+                    <div class="category-label">Category: ${item.category}</div>
+                    <div class="confidence-label">Confidence: ${(item.confidence * 100).toFixed(1)}%</div>
+                    <div class="counter-args-label">Counter Arguments:</div>
+                    <ul class="counter-args-list">
                         ${item.counter_arguments.map(arg => `<li>${arg}</li>`).join('')}
                     </ul>
-                </li>
+                </div>
             `;
         });
 
-        html += `</ul>
+        html += `</div>
             <div class="report-container">
                 <div class="report-toggle">
                     <button type="button" class="primary-btn" onclick="toggleReport()">Toggle Markdown Report</button>
