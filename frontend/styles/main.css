@@ -110,7 +110,23 @@ main {
     margin-bottom: 3rem;
 }
 
-.input-container,
+.input-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    max-width: 100%; /* Prevents overflow */
+}
+
+#url-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    height: 48px;
+}
+
 .results-container {
     background-color: var(--white);
     padding: 2rem;
