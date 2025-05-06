@@ -381,3 +381,17 @@ footer {
     list-style-type: disc;
     margin-bottom: 10px;
 }
+
+.sources-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color, #2563eb);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.sources-list {
+    margin-left: 20px;
+    list-style-type: disc;
+    margin-bottom: 10px;
+}
