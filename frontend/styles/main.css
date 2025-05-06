@@ -411,3 +411,26 @@ footer {
     list-style-type: disc;
     margin-bottom: 10px;
 }
+
+.detected-text-label,
+.similar-misinformation-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color, #2563eb);
+    margin-bottom: 5px;
+}
+
+.chunk {
+    padding: 10px;
+    background-color: #f4f6f7;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.statement {
+    padding: 10px;
+    background-color: #ebf5fb;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+    margin: 10px 0;
+}
