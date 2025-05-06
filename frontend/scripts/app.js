@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         html += `</div>
             <div class="report-container">
                 <div class="report-toggle">
-                    <button type="button" class="primary-btn" onclick="toggleReport()">New Features Coming Soon!/button>
+                    <button type="button" class="primary-btn" onclick="toggleReport()">New Features Coming Soon!</button>
                 </div>
                 <pre id="report" class="report" style="display: none;">${data.report || 'No report available.'}</pre>
             </div>
