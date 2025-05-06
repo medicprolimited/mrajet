@@ -357,6 +357,12 @@ footer {
     margin-bottom: 20px;
 }
 
+.no-misinformation {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .misinformation-list {
     margin-top: 20px;
 }

@@ -57,39 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>Analysis Results</h2>
             <p><strong>URL:</strong> ${data.url}</p>
             <p><strong>Processing Time:</strong> ${data.processing_time.toFixed(2)} seconds</p>
-            <div class="misinformation-header">Detected Misinformation</div>
-            <div class="misinformation-list">
         `;
-
-        // Loop through misinformation results
-        data.result.forEach(item => {
+    
+        if (data.result.length > 0) {
             html += `
-                <div class="misinformation-item">
-                    <div class="detected-text-label">Detected Text:</div>
-                    <div class="chunk">${item.chunk}</div>
-                    <div class="similar-misinformation-label">Similar Misinformation:</div>
-                    <div class="statement">${item.statement}</div>
-                    <div class="category-label">Category: ${item.category}</div>
-                    <div class="confidence-label">Confidence: ${(item.confidence * 100).toFixed(1)}%</div>
-                    <div class="counter-args-label">Counter Arguments:</div>
-                    <ul class="counter-args-list">
-                        ${item.counter_arguments.map(arg => `<li>${arg}</li>`).join('')}
-                    </ul>
+                <div class="misinformation-header">Detected Misinformation</div>
+                <div class="misinformation-list">
             `;
     
-            if (item.sources && item.sources.length > 0) {
+            data.result.forEach(item => {
                 html += `
-                    <div class="sources-label">Sources:</div>
-                    <ul class="sources-list">
-                        ${item.sources.map(source => `<li>${source}</li>`).join('')}
-                    </ul>
+                    <div class="misinformation-item">
+                        <div class="detected-text-label">Detected Text:</div>
+                        <div class="chunk">${item.chunk}</div>
+                        <div class="similar-misinformation-label">Similar Misinformation:</div>
+                        <div class="statement">${item.statement}</div>
+                        <div class="category-label">Category: ${item.category}</div>
+                        <div class="confidence-label">Confidence: ${(item.confidence * 100).toFixed(1)}%</div>
+                        <div class="counter-args-label">Counter Arguments:</div>
+                        <ul class="counter-args-list">
+                            ${item.counter_arguments.map(arg => `<li>${arg}</li>`).join('')}
+                        </ul>
                 `;
-            }
-
-            html += `</div>`;
-        });
     
-        html += `</div>
+                if (item.sources && item.sources.length > 0) {
+                    html += `
+                        <div class="sources-label">Sources:</div>
+                        <ul class="sources-list">
+                            ${item.sources.map(source => `<li>${source}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+    
+                html += `</div>`;
+            });
+    
+            html += `</div>`;
+        } else {
+            html += `<p class="no-misinformation">No Misinformation Detected</p>`;
+        }
+    
+        html += `
             <div class="report-container">
                 <div class="report-toggle">
                     <button type="button" class="primary-btn" onclick="toggleReport()">New Features Coming Soon!</button>
