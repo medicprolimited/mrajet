@@ -19,7 +19,8 @@ def detect_misinformation(chunks: List[str], model: SentenceTransformer) -> List
         model (SentenceTransformer): Pre-loaded SentenceTransformer model.
 
     Returns:
-        List[Dict[str, any]]: List of dictionaries containing detected misinformation and metadata.
+        List[Dict[str, any]]: List of dictionaries containing detected misinformation and metadata,
+                              ordered by their appearance in the article.
     """
     logger.info(f"Starting misinformation detection on {len(chunks)} text chunks")
     start_time = time.time()
@@ -94,12 +95,14 @@ def detect_misinformation(chunks: List[str], model: SentenceTransformer) -> List
     similarity_scores = cosine_similarity(chunk_embeddings_np, misinfo_embeddings_np)
     logger.debug(f"Similarity calculation completed in {time.time() - sim_start:.2f} seconds")
 
-    # Find matches that exceed threshold
+    # Process each chunk in order and select the best match
     logger.debug("Finding matches that exceed threshold")
-    results = []
+    final_results = []
     matches_by_category = {}
+    chunks_with_matches = 0
 
     for i, chunk in enumerate(chunks):
+        matches = []
         for j, statement in enumerate(statements):
             category = categories[j]
             threshold = category_thresholds.get(category, default_threshold)
@@ -112,45 +115,37 @@ def detect_misinformation(chunks: List[str], model: SentenceTransformer) -> List
                     logger.debug(f"Chunk: \"{chunk[:100]}...\"")
                     logger.debug(f"Statement: \"{statement}\"")
 
-            # Only add to results if it exceeds the threshold
+            # Collect matches that exceed the threshold
             if similarity >= threshold:
-                # Track matches by category for logging
-                matches_by_category[category] = matches_by_category.get(category, 0) + 1
-                results.append({
+                matches.append({
                     'chunk': chunk,
                     'statement': statement,
                     'category': category,
-                    'confidence': float(similarity),
+                    'confidence': float(similarity)
                 })
 
-    logger.info(f"Found {len(results)} initial matches above threshold")
+        if matches:
+            # Select the match with the highest confidence for this chunk
+            best_match = max(matches, key=lambda x: x['confidence'])
+            final_results.append(best_match)
+            chunks_with_matches += 1
+            # Track matches by category for logging
+            category = best_match['category']
+            matches_by_category[category] = matches_by_category.get(category, 0) + 1
+
+    logger.info(f"Processed {len(chunks)} chunks, found matches in {chunks_with_matches} of them")
     # Log matches by category
     for category, count in matches_by_category.items():
         logger.debug(f"  - {category}: {count} matches")
 
-    # Sort results by confidence score (descending)
-    logger.debug("Sorting results by confidence score")
-    results.sort(key=lambda x: x['confidence'], reverse=True)
+    logger.info(f"Final detection results: {len(final_results)} chunks with misinformation")
 
-    # Remove duplicates (keep highest confidence for each chunk)
-    logger.debug("Removing duplicate chunks (keeping highest confidence for each)")
-    unique_chunks = set()
-    filtered_results = []
-
-    for result in results:
-        chunk = result['chunk']
-        if chunk not in unique_chunks:
-            unique_chunks.add(chunk)
-            filtered_results.append(result)
-
-    logger.info(f"Final detection results: {len(filtered_results)} unique chunks with misinformation")
-
-    # Log some high-confidence examples
-    if filtered_results and logger.isEnabledFor(logging.DEBUG):
-        logger.debug("Sample high-confidence matches:")
-        for i, result in enumerate(filtered_results[:3]):  # Log top 3 examples
+    # Log some examples in the order they appear
+    if final_results and logger.isEnabledFor(logging.DEBUG):
+        logger.debug("Sample matches in article order:")
+        for i, result in enumerate(final_results[:3]):  # Log first 3 examples
             truncated_chunk = result['chunk'][:50] + "..." if len(result['chunk']) > 50 else result['chunk']
             logger.debug(f"  {i+1}. {result['category']} ({result['confidence']:.3f}): \"{truncated_chunk}\"")
 
     logger.info(f"Misinformation detection completed in {time.time() - start_time:.2f} seconds")
-    return filtered_results
+    return final_results
