@@ -440,3 +440,14 @@ footer {
     border-left: 3px solid #3498db;
     margin: 10px 0;
 }
+
+
+/* Links in Sources */
+.results-box a {
+    color: var(--primary-color); /* #2563eb, modern blue */
+    text-decoration: underline;
+}
+
+.results-box a:hover {
+    color: var(--primary-dark); /* #1d4ed8, darker blue */
+}

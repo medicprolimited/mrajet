@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     html += `
                         <div class="sources-label">Sources:</div>
                         <ul class="sources-list">
-                            ${item.sources.map(source => `<li>${source}</li>`).join('')}
+                            ${item.sources.map(source => `<li>${marked.parse(source)}</li>`).join('')}
                         </ul>
                     `;
                 }
@@ -107,6 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     
         resultDiv.innerHTML = html;
+
+        // Ensure links open in a new tab
+        document.querySelectorAll('.results-box a').forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
     }
 
     // Function to toggle report visibility
