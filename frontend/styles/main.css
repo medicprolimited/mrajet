@@ -368,7 +368,7 @@ footer {
 }
 
 .misinformation-item {
-    padding-bottom: 20px;
+    padding-bottom: 60px;
     border-bottom: 1px solid var(--border-color, #e2e8f0);
     margin-bottom: 20px;
 }
