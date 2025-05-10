@@ -289,7 +289,13 @@ footer {
     opacity: 1;
     text-decoration: underline;
 }
-
+/* Footer Logo */
+.footer-logo {
+    width: 24px; /* Adjust size as needed (e.g., 32px, 40px) */
+    height: auto; /* Maintains aspect ratio */
+    vertical-align: middle; /* Aligns logo with text */
+    margin-left: 0.5rem; /* Adds space between text and logo */
+}
 /* Loading State */
 .loading {
     position: relative;
