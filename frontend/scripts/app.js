@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="confidence-label">Confidence: ${(item.confidence * 100).toFixed(1)}%</div>
                         <div class="counter-args-label">Counter Arguments:</div>
                         <ul class="counter-args-list">
-                            ${item.counter_arguments.map(arg => `<li>${arg}</li>`).join('')}
+                            ${item.counter_arguments.map(arg => `<li>${marked.parse(arg)}</li>`).join('')}
                         </ul>
                 `;
     
