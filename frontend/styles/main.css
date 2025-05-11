@@ -90,6 +90,15 @@ nav {
     margin-right: 10px; /* Adds space between the image and text */
 }
 
+@media (max-width: 600px) {
+    .logo-image {
+        width: 40px; /* Smaller logo on mobile */
+    }
+    .logo h1 {
+        font-size: 1.2rem; /* Smaller text on mobile */
+    }
+}
+
 /* Main Content */
 main {
     margin-top: 80px;
