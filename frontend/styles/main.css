@@ -77,6 +77,19 @@ nav {
     color: var(--primary-color);
 }
 
+/* Style the logo container */
+.logo {
+    display: flex;
+    align-items: center; /* Vertically centers the image and text */
+}
+
+/* Style the logo image */
+.logo-image {
+    width: 50px; /* Adjust this value to resize the logo */
+    height: auto; /* Maintains the image's aspect ratio */
+    margin-right: 10px; /* Adds space between the image and text */
+}
+
 /* Main Content */
 main {
     margin-top: 80px;
