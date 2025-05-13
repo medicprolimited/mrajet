@@ -28,13 +28,6 @@ A modern web application that uses AI to detect and analyze potential misinforma
 
 
 
-
-cd frontend
-python -m http.server 3000
-```
-
-## Development
-
 ### Frontend Development
 - The frontend uses vanilla JavaScript for simplicity and performance
 - CSS is organized using CSS variables for easy theming
